@@ -9,13 +9,14 @@ public class GameController : MonoBehaviour {
     public ReferenceController rc;
 
     // A state to control the 'phase' of the game in the Update loop and initialise to Default
-    public enum GameState { SpawnUnit, Default, NextTurn }
+    public enum GameState { SpawnUnit, SpawnTown, Default, NextTurn }
     // assign the public gameState to Default
     // MAKE GAMESTATE NON-PUBLIC?
     public GameState gameState = GameState.Default;
 
-    // Prefab for spawning units - TODO: MOVE TO A UNIT CONTROLLER?
+    // Prefab for spawning units/town - TODO: MOVE TO A UNIT/TOWN CONTROLLER?
     public Unit unitPrefab;
+    public Town townPrefab;
 
     public int turn = 0;
 
@@ -50,6 +51,31 @@ public class GameController : MonoBehaviour {
                     }
                 }
                 // un-select SpawnUnit mode on right click
+                if (Input.GetMouseButtonDown(1))
+                {
+                    gameState = GameState.Default;
+                }
+                break;
+            case GameState.SpawnTown:
+                if (Input.GetMouseButtonDown(0))
+                {
+                    // On left-click round to the nearest Floor location (integer value)
+                    Vector3 spawnPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    spawnPos.x = Mathf.Round(spawnPos.x);
+                    spawnPos.y = Mathf.Round(spawnPos.y);
+                    spawnPos.z = 0;
+                    // find the floor object at the desired spawn location
+                    Floor floor = rc.mc.GetFloorAt(spawnPos);
+
+                    // test to see if floor exists
+                    if (floor != null)
+                    {
+                        // if exists, check if there's a unit already there and if not, spawn here
+                        if (floor.hasTown == false)
+                            floor.AddTown(Instantiate(townPrefab, spawnPos, Quaternion.identity));
+                    }
+                }
+                // un-select SpawnTown mode on right click
                 if (Input.GetMouseButtonDown(1))
                 {
                     gameState = GameState.Default;

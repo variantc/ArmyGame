@@ -38,6 +38,30 @@ public class UIController : MonoBehaviour {
         UpdateGameStateText();
     }
 
+    // Function to be called when Unit button clicked - currently toggles into and out of SpawnTown gameState
+    public void Button_Town()
+    {
+        // toggle spawn unit gameState
+        if (rc.gc.gameState != GameController.GameState.SpawnTown)
+        {
+            // set the game state to SpawnTown state in GameController
+            rc.gc.SetGameState(GameController.GameState.SpawnTown);
+
+            // set the button colour to green
+            GameObject.FindGameObjectWithTag("UnitButton").GetComponent<Image>().color = Color.green;
+        }
+        else
+        {
+            // set the game state to Defaul state in GameController
+            rc.gc.SetGameState(GameController.GameState.Default);
+
+            // set the button colour to white
+            GameObject.FindGameObjectWithTag("UnitButton").GetComponent<Image>().color = Color.white;
+        }
+        // update the gamestate display
+        UpdateGameStateText();
+    }
+
     void UpdateGameStateText()
     {
         // Change the text to display the current gamestate

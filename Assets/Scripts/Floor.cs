@@ -20,7 +20,12 @@ public class Floor : MonoBehaviour {
     public bool hasUnit = false;
     // unit present in this floor object
     Unit unit;
-    
+
+    // flag for is this floor object currently has a town present
+    public bool hasTown = false;
+    // town present in this floor object
+    Town town;
+
     // resource present here, if any - default to None - assigned in MapGenerator
     public MapController.Resource resource = MapController.Resource.None;
 
@@ -67,6 +72,30 @@ public class Floor : MonoBehaviour {
         {
             this.unit = null;
             hasUnit = false;
+        }
+    }
+    
+    // public function to add the Town to Floor object
+    // DO WE WANT TO MAKE FUNCTION RETURN BOOL TO INDICATE SUCCESS/FAILURE?
+    public void AddTown(Town town)
+    {
+        // check if we don't already have a unit here
+        if (hasTown == false)
+        {
+            this.town = town;
+            hasTown = true;
+        }
+    }
+    
+    // public function to remove town from this Floor object
+    // DO WE WANT TO MAKE FUNCTION RETURN BOOL TO INDICATE SUCCESS/FAILURE?
+    public void RemoveTown()
+    {
+        // check if we have a unit here to remove
+        if (hasTown == true)
+        {
+            this.town = null;
+            hasTown = false;
         }
     }
 
