@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 276439939}
   m_Layer: 5
   m_Name: TownButton
-  m_TagString: UnitButton
+  m_TagString: TownButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -484,7 +484,7 @@ GameObject:
   - component: {fileID: 727675953}
   m_Layer: 5
   m_Name: RoadButton
-  m_TagString: UnitButton
+  m_TagString: RoadButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -548,7 +548,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1453559271}
-        m_MethodName: Button_Town
+        m_MethodName: Button_Road
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -971,6 +971,7 @@ MonoBehaviour:
   UIc: {fileID: 1453559271}
   mc: {fileID: 1453559273}
   mg: {fileID: 1807622640}
+  rg: {fileID: 1453559274}
 --- !u!4 &1453559270
 Transform:
   m_ObjectHideFlags: 0

@@ -9,4 +9,5 @@ public class ReferenceController : MonoBehaviour {
     public UIController UIc;
     public MapController mc;
     public MapGenerator mg;
+    public RoadGenerator rg;
 }

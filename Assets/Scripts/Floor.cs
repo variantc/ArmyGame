@@ -87,6 +87,9 @@ public class Floor : MonoBehaviour {
         {
             this.town = town;
             hasTown = true;
+
+            // set town name
+            this.town.transform.name = "Town_" + this.transform.name;
         }
     }
     

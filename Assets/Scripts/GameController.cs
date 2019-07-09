@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour {
     public ReferenceController rc;
 
     // A state to control the 'phase' of the game in the Update loop and initialise to Default
-    public enum GameState { SpawnUnit, SpawnTown, Default, NextTurn }
+    public enum GameState { SpawnUnit, SpawnTown, SpawnRoad, Default, NextTurn }
     // assign the public gameState to Default
     // MAKE GAMESTATE NON-PUBLIC?
     public GameState gameState = GameState.Default;
@@ -31,6 +31,12 @@ public class GameController : MonoBehaviour {
     {
         switch (gameState)
         {
+            case GameState.SpawnRoad :
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    rc.rg.DoRoads();
+                }
+                break;
             case GameState.SpawnUnit :
                 if (Input.GetMouseButtonDown(0))
                 {

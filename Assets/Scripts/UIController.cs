@@ -14,6 +14,29 @@ public class UIController : MonoBehaviour {
         UpdateGameStateText();
     }
 
+    public void Button_Road()
+    {
+        // toggle spawn unit gameState
+        if (rc.gc.gameState != GameController.GameState.SpawnRoad)
+        {
+            // set the game state to SpawnUnit state in GameController
+            rc.gc.SetGameState(GameController.GameState.SpawnRoad);
+
+            // set the button colour to green
+            GameObject.FindGameObjectWithTag("RoadButton").GetComponent<Image>().color = Color.green;
+        }
+        else
+        {
+            // set the game state to Defaul state in GameController
+            rc.gc.SetGameState(GameController.GameState.Default);
+
+            // set the button colour to white
+            GameObject.FindGameObjectWithTag("RoadButton").GetComponent<Image>().color = Color.white;
+        }
+        // update the gamestate display
+        UpdateGameStateText();
+    }
+
     // Function to be called when Unit button clicked - currently toggles into and out of SpawnUnit gameState
     public void Button_Unit()
     {
@@ -48,7 +71,7 @@ public class UIController : MonoBehaviour {
             rc.gc.SetGameState(GameController.GameState.SpawnTown);
 
             // set the button colour to green
-            GameObject.FindGameObjectWithTag("UnitButton").GetComponent<Image>().color = Color.green;
+            GameObject.FindGameObjectWithTag("TownButton").GetComponent<Image>().color = Color.green;
         }
         else
         {
@@ -56,7 +79,7 @@ public class UIController : MonoBehaviour {
             rc.gc.SetGameState(GameController.GameState.Default);
 
             // set the button colour to white
-            GameObject.FindGameObjectWithTag("UnitButton").GetComponent<Image>().color = Color.white;
+            GameObject.FindGameObjectWithTag("TownButton").GetComponent<Image>().color = Color.white;
         }
         // update the gamestate display
         UpdateGameStateText();
