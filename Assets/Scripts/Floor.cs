@@ -26,6 +26,9 @@ public class Floor : MonoBehaviour {
     // town present in this floor object
     Town town;
 
+    // RoadValue
+    public int roadValue = 0;
+
     // resource present here, if any - default to None - assigned in MapGenerator
     public MapController.Resource resource = MapController.Resource.None;
 

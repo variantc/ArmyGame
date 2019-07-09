@@ -239,6 +239,7 @@
     <Compile Include="Assets\Scripts\MapController.cs" />
     <Compile Include="Assets\Scripts\MapGenerator.cs" />
     <Compile Include="Assets\Scripts\ReferenceController.cs" />
+    <Compile Include="Assets\Scripts\RoadGenerator.cs" />
     <Compile Include="Assets\Scripts\Town.cs" />
     <Compile Include="Assets\Scripts\UIController.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
