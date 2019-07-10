@@ -34,6 +34,11 @@ public class RoadGenerator : MonoBehaviour {
             currentFloor = rc.mc.GetFloorAt(sourceTown.transform.position);
 
             nextFloor = FindNextFloor(currentFloor, prevailingDirection, otherDirection);
+
+            
+            nextFloor.IncreaseRoadValue();
+
+            Debug.Log(currentFloor + " " + nextFloor);
         }
     }
 
@@ -152,7 +157,7 @@ public class RoadGenerator : MonoBehaviour {
 
     Floor CheckNextFloor (Vector3 checkDir)
     {
-        Floor f = rc.mc.GetFloorAt(this.transform.position + checkDir);
+        Floor f = rc.mc.GetFloorAt(currentFloor.transform.position + checkDir);
 
         if (f != null)
         {

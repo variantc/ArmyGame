@@ -111,4 +111,10 @@ public class Floor : MonoBehaviour {
     {
         this.GetComponent<Renderer>().material.color = Color.green;
     }
+
+    public void IncreaseRoadValue()
+    {
+        roadValue++;
+        this.GetComponent<Renderer>().material.color += new Color(100f, 100f, 100f);
+    }
 }
